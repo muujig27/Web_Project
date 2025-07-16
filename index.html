@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <script src="js/main.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>게임 웹사이트</title>
+  <style>
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f0f0;
+      color: #222;
+    }
+
+    header {
+      background: #333;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-title img {
+      width: 40px;
+      height: 40px;
+    }
+
+    nav button {
+      background: transparent;
+      border: 1px solid white;
+      color: white;
+      margin-left: 10px;
+      padding: 6px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    nav button:hover {
+      background: white;
+      color: #333;
+    }
+
+    .search-bar {
+      padding: 15px 20px;
+      background: white;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .search-bar input[type="text"] {
+      flex-grow: 1;
+      padding: 8px 35px 8px 35px;
+      font-size: 16px;
+    }
+
+    .genres button {
+      padding: 7px 12px;
+      background: #ddd;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .genres button.active {
+      background: #333;
+      color: white;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    .game-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 15px;
+    }
+
+    .game-item {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      padding: 10px;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .game-item:hover {
+      transform: scale(1.03);
+    }
+
+    .game-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+    }
+
+    .game-item p {
+      margin: 10px 0 0;
+      font-weight: bold;
+      font-size: 16px;
+      color: #333;
+    }
+
+    /* 검색 아이콘 위치 */
+    .search-container {
+      position: relative;
+      flex-grow: 1;
+    }
+
+    #searchIcon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo-title">
+      <img src="https://via.placeholder.com/40" alt="로고" />
+      <h1>웹페이지 제목 (미정)</h1>
+    </div>
+    <nav>
+      <button id="loginBtn">로그인</button>
+      <button id="signUpBtn">회원가입</button>
+    </nav>
+  </header>
+
+  <!-- 검색바 영역 -->
+  <section class="search-bar">
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="검색어를 입력하세요" onkeypress="handleKeyPress(event)" />
+      <svg id="searchIcon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="gray"
+        viewBox="0 0 24 24">
+        <path
+          d="M21.71 20.29l-5.4-5.4A7.92 7.92 0 0016 10a8 8 0 10-8 8 7.92 7.92 0 004.89-1.69l5.4 5.4a1 1 0 001.42-1.42zM4 10a6 6 0 116 6 6 6 0 01-6-6z" />
+      </svg>
+    </div>
+    <div class="genres">
+      <button class="active" data-genre="all">전체</button>
+      <button data-genre="action">액션</button>
+      <button data-genre="rpg">RPG</button>
+      <button data-genre="strategy">전략</button>
+    </div>
+  </section>
+
+  <!-- 게임 목록 -->
+  <main>
+    <div class="game-list" id="gameList">
+      <!-- JS에서 렌더링됨 -->
+    </div>
+  </main>
+
+  <script>
+    const games = [
+      { id: 1, name: "게임A", genre: "action", img: "https://via.placeholder.com/100?text=A" },
+      { id: 2, name: "게임B", genre: "rpg", img: "https://via.placeholder.com/100?text=B" },
+      { id: 3, name: "게임C", genre: "strategy", img: "https://via.placeholder.com/100?text=C" },
+      { id: 4, name: "게임D", genre: "action", img: "https://via.placeholder.com/100?text=D" },
+      { id: 5, name: "게임E", genre: "rpg", img: "https://via.placeholder.com/100?text=E" }
+    ];
+
+    const gameListEl = document.getElementById('gameList');
+    const searchInput = document.getElementById('searchInput');
+    const genreButtons = document.querySelectorAll('.genres button');
+
+    function renderGames(filterGenre = 'all', searchTerm = '') {
+      const filteredGames = games.filter(game => {
+        const matchGenre = filterGenre === 'all' || game.genre === filterGenre;
+        const matchSearch = game.name.toLowerCase().includes(searchTerm.toLowerCase());
+        return matchGenre && matchSearch;
+      });
+
+      gameListEl.innerHTML = filteredGames.map(game => `
+        <div class="game-item" data-id="${game.id}">
+          <img src="${game.img}" alt="${game.name}" />
+          <p>${game.name}</p>
+        </div>
+      `).join('');
+
+      document.querySelectorAll('.game-item').forEach(item => {
+        item.addEventListener('click', () => {
+          const gameId = item.getAttribute('data-id');
+          alert(`게임 상세 페이지로 이동: 게임 ID ${gameId}`);
+          // 실제 구현 시 location.href = `game_detail.html?id=${gameId}`;
+        });
+      });
+    }
+
+    function handleKeyPress(event) {
+      if (event.key === 'Enter') {
+        const activeGenreBtn = document.querySelector('.genres button.active');
+        const genre = activeGenreBtn ? activeGenreBtn.getAttribute('data-genre') : 'all';
+        renderGames(genre, searchInput.value.trim());
+      }
+    }
+
+    document.getElementById('searchIcon').addEventListener('click', () => {
+      const activeGenreBtn = document.querySelector('.genres button.active');
+      const genre = activeGenreBtn ? activeGenreBtn.getAttribute('data-genre') : 'all';
+      renderGames(genre, searchInput.value.trim());
+    });
+
+    genreButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        genreButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderGames(btn.getAttribute('data-genre'), searchInput.value.trim());
+      });
+    });
+
+    // 로그인, 회원가입 버튼 동작
+    document.getElementById('loginBtn').addEventListener('click', () => {
+      alert('로그인 페이지로 이동');
+      // location.href = 'login.html';
+    });
+
+    document.getElementById('signUpBtn').addEventListener('click', () => {
+      alert('회원가입 페이지로 이동');
+      // location.href = 'signup.html';
+    });
+
+    // 초기 렌더링
+    renderGames();
+  </script>
+</body>
+
+</html>

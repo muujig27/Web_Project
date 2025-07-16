@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>로그인 페이지</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .login-container {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 320px;
+  }
+  h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  button.login-btn {
+    width: 100%;
+    background: #333;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  button.login-btn:hover {
+    background: #555;
+  }
+  .divider {
+    text-align: center;
+    margin: 20px 0;
+    color: #aaa;
+  }
+  .social-login {
+    display: flex;
+    justify-content: space-between;
+  }
+  .social-btn {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px 0;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+  }
+  .social-btn svg {
+    width: 18px; height: 18px;
+  }
+  .google { background: #db4437; }
+  .naver { background: #03c75a; }
+  .kakao { background: #fee500; color: #3c1e1e; }
+  .signup-link {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+  }
+  .signup-link a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<div class="login-container">
+  <h2>로그인</h2>
+  <input type="text" placeholder="아이디 또는 이메일" id="userid" />
+  <input type="password" placeholder="비밀번호" id="password" />
+  <button class="login-btn" id="loginBtn">로그인</button>
+
+  <div class="divider">또는</div>
+
+  <div class="social-login">
+    <div class="social-btn google" id="googleLogin">
+      <!-- 구글 아이콘 -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 533.5 544.3"><path fill="#fff" d="M533.5 278.4c0-18.9-1.7-37-5-54.7H272v103.6h147.5c-6.3 34.1-25.6 62.9-54.5 82.1v68h88.1c51.6-47.5 81.9-117.8 81.9-198.9z"/><path fill="#4285F4" d="M272 544.3c73.7 0 135.6-24.3 180.8-65.9l-88.1-68c-24.4 16.3-55.7 26-92.6 26-71 0-131.1-47.9-152.8-112.1H28.6v70.7c45 88.7 137.3 149.3 243.4 149.3z"/><path fill="#34A853" d="M119.2 324.4c-10.4-30.6-10.4-63.6 0-94.2V159.5H28.6c-36.8 73.7-36.8 161.9 0 235.6l90.6-70.7z"/><path fill="#FBBC05" d="M272 106.1c39.7 0 75.2 13.6 103.2 40.2l77.4-77.4C402.9 24.6 343.3 0 272 0 165.9 0 73.6 60.5 28.6 149.3l90.6 70.7c21.7-64.3 81.8-112.1 152.8-112.1z"/></svg>
+      구글 로그인
+    </div>
+    <div class="social-btn naver" id="naverLogin">
+      <!-- 네이버 아이콘 -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#fff" d="M128 128h50l128 256h-50z"/></svg>
+      네이버 로그인
+    </div>
+    <div class="social-btn kakao" id="kakaoLogin">
+      <!-- 카카오 아이콘 -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#3c1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 2H4a2 2 0 0 0-2 2v16l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg>
+      카카오 로그인
+    </div>
+  </div>
+
+  <div class="signup-link">
+    계정이 없으신가요? <a href="#" id="goSignUp">회원가입</a>
+  </div>
+</div>
+
+<script>
+  document.getElementById('loginBtn').addEventListener('click', () => {
+    alert('로그인 시도 (기본 기능 - 실제 로그인 구현 필요)');
+  });
+  document.getElementById('googleLogin').addEventListener('click', () => {
+    alert('구글 로그인 연동 필요');
+  });
+  document.getElementById('naverLogin').addEventListener('click', () => {
+    alert('네이버 로그인 연동 필요');
+  });
+  document.getElementById('kakaoLogin').addEventListener('click', () => {
+    alert('카카오 로그인 연동 필요');
+  });
+  document.getElementById('goSignUp').addEventListener('click', (e) => {
+    e.preventDefault();
+    alert('회원가입 페이지로 이동');
+  });
+</script>
+
+</body>
+</html>

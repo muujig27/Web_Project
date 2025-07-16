@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>게임 상세 정보</title>
+<style>
+  body {
+    margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0; color: #222;
+  }
+  header {
+    background: #333; color: white;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 20px;
+  }
+  .logo-title {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .logo-title img {
+    width: 40px; height: 40px;
+  }
+  nav button {
+    background: transparent; border: 1px solid white; color: white;
+    margin-left: 10px; padding: 6px 12px;
+    cursor: pointer; border-radius: 4px;
+  }
+  nav button:hover {
+    background: white; color: #333;
+  }
+  main {
+    max-width: 800px;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .game-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  .game-image {
+    width: 100%;
+    max-height: 350px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  .description {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  .rating {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  .country-flag {
+    width: 48px;
+    cursor: pointer;
+  }
+  .flag-container {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .review-section {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+  }
+  .review-section button {
+    padding: 8px 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .review-section button:hover {
+    background-color: #555;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-title">
+    <img src="https://via.placeholder.com/40" alt="로고" />
+    <h1>웹페이지 제목 (미정)</h1>
+  </div>
+  <nav>
+    <button onclick="alert('로그인 페이지 이동')">로그인</button>
+    <button onclick="alert('회원가입 페이지 이동')">회원가입</button>
+  </nav>
+</header>
+
+<main>
+  <div class="game-title">게임A</div>
+  <img class="game-image" src="https://via.placeholder.com/600x300?text=게임A+로고" alt="게임A 로고" />
+  <div class="description">
+    이곳에 게임A의 상세 설명이 들어갑니다. 게임 장르, 특징, 출시일 등 간략히 소개해주세요.
+  </div>
+  <div class="rating">평점: ★★★★☆ (4.2 / 5)</div>
+
+  <div class="flag-container">
+    <img src="https://flagcdn.com/w40/kr.png" alt="한국 국기" class="country-flag" onclick="goCountry('kr')" />
+    <img src="https://flagcdn.com/w40/us.png" alt="미국 국기" class="country-flag" onclick="goCountry('us')" />
+    <img src="https://flagcdn.com/w40/jp.png" alt="일본 국기" class="country-flag" onclick="goCountry('jp')" />
+  </div>
+
+  <div class="review-section">
+    <button onclick="alert('리뷰 작성 페이지로 이동')">리뷰 작성하기</button>
+  </div>
+</main>
+
+<script>
+  function goCountry(code) {
+    alert(`${code.toUpperCase()} 나라 페이지로 이동 (이벤트 및 독점 스킨 정보)`);
+    // 실제 구현 시 페이지 이동 코드 필요
+  }
+</script>
+
+</body>
+</html>

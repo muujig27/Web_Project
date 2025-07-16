@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>나라별 이벤트 - 대한민국</title>
+<style>
+  body {
+    margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0; color: #222;
+  }
+  header {
+    background: #333; color: white;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 20px;
+  }
+  .logo-title {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .logo-title img {
+    width: 40px; height: 40px;
+  }
+  nav button {
+    background: transparent; border: 1px solid white; color: white;
+    margin-left: 10px; padding: 6px 12px;
+    cursor: pointer; border-radius: 4px;
+  }
+  nav button:hover {
+    background: white; color: #333;
+  }
+  main {
+    max-width: 900px;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  h2 {
+    margin-bottom: 20px;
+  }
+  .event-list {
+    list-style: none;
+    padding: 0;
+  }
+  .event-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  .event-list li:last-child {
+    border-bottom: none;
+  }
+  .skin-list {
+    margin-top: 30px;
+  }
+  .skin-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    background: #fafafa;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  .skin-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  .skin-item .skin-info {
+    font-size: 16px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-title">
+    <img src="https://via.placeholder.com/40" alt="로고" />
+    <h1>웹페이지 제목 (미정)</h1>
+  </div>
+  <nav>
+    <button onclick="alert('로그인 페이지 이동')">로그인</button>
+    <button onclick="alert('회원가입 페이지 이동')">회원가입</button>
+  </nav>
+</header>
+
+<main>
+  <h2>게임A - 대한민국 이벤트 & 독점 스킨</h2>
+
+  <section>
+    <h3>이벤트</h3>
+    <ul class="event-list">
+      <li>2025년 8월 독점 여름 축제 이벤트</li>
+      <li>2025년 9월 추석 특별 보상 이벤트</li>
+      <li>2025년 12월 겨울 한정 스킨 출시</li>
+    </ul>
+  </section>
+
+  <section class="skin-list">
+    <h3>독점 스킨</h3>
+    <div class="skin-item">
+      <img src="https://via.placeholder.com/80?text=스킨1" alt="스킨1" />
+      <div class="skin-info">한정판 불꽃 전사 스킨</div>
+    </div>
+    <div class="skin-item">
+      <img src="https://via.placeholder.com/80?text=스킨2" alt="스킨2" />
+      <div class="skin-info">추석 테마 전통 의상 스킨</div>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>
