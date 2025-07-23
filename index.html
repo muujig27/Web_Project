@@ -2,7 +2,7 @@
 <html lang="ko">
 
 <head>
-  <script src="js/main.js"></script>
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>게임 웹사이트</title>
@@ -125,6 +125,7 @@
       top: 50%;
       transform: translateY(-50%);
       cursor: pointer;
+      z-index: 0;
     }
 
     .genres {
@@ -132,10 +133,6 @@
       flex-wrap: wrap;
       gap: 8px 12px;
       margin-top: 10px;
-    }
-
-    #searchIcon {
-      z-index: 0;
     }
     
   </style>
@@ -190,101 +187,6 @@
       <!-- JS에서 렌더링됨 -->
     </div>
   </main>
-
-  <script>
-    const games = [
-      { id: 1, name: "Counter-Strike 2", genre: ["FPS", "action"], img: "C:/Users/User/새 폴더/Web_Project/IMG/CS-2.jpg" },
-      { id: 2, name: "사이버펑크 2077", genre: "rpg", img: "C:/Users/User/새 폴더/Web_Project/IMG/SP-2077.jpg" },
-      { id: 3, name: "레인보우 식스 시즈", genre: "strategy", img: "C:/Users/User/새 폴더/Web_Project/IMG/RSS.jpg" },
-      { id: 4, name: "게임D", genre: "action", img: "https://via.placeholder.com/100?text=D" },
-      { id: 5, name: "게임E", genre: "rpg", img: "https://via.placeholder.com/100?text=E" },
-      { id: 4, name: "게임D", genre: "action", img: "https://via.placeholder.com/100?text=D" },
-      { id: 5, name: "게임E", genre: "rpg", img: "https://via.placeholder.com/100?text=E" },
-      { id: 1, name: "Counter-Strike 2", genre: "action", img: "C:/Users/User/새 폴더/Web_Project/IMG/CS-2.jpg" },
-      { id: 2, name: "사이버펑크 2077", genre: "rpg", img: "C:/Users/User/새 폴더/Web_Project/IMG/SP-2077.jpg" },
-      { id: 3, name: "레인보우 식스 시즈", genre: "strategy", img: "C:/Users/User/새 폴더/Web_Project/IMG/RSS.jpg" },
-      { id: 4, name: "게임D", genre: "action", img: "https://via.placeholder.com/100?text=D" },
-      { id: 5, name: "게임E", genre: "rpg", img: "https://via.placeholder.com/100?text=E" },
-      { id: 4, name: "게임D", genre: "action", img: "https://via.placeholder.com/100?text=D" },
-      { id: 1, name: "Counter-Strike 2", genre: "action", img: "C:/Users/User/새 폴더/Web_Project/IMG/CS-2.jpg" },
-      { id: 2, name: "사이버펑크 2077", genre: "rpg", img: "C:/Users/User/새 폴더/Web_Project/IMG/SP-2077.jpg" },
-      { id: 3, name: "레인보우 식스 시즈", genre: "strategy", img: "C:/Users/User/새 폴더/Web_Project/IMG/RSS.jpg" },
-      { id: 4, name: "게임D", genre: "action", img: "https://via.placeholder.com/100?text=D" },
-      { id: 5, name: "게임E", genre: "rpg", img: "https://via.placeholder.com/100?text=E" },
-      { id: 4, name: "게임D", genre: "action", img: "https://via.placeholder.com/100?text=D" },
-      { id: 1, name: "Counter-Strike 2", genre: "action", img: "C:/Users/User/새 폴더/Web_Project/IMG/CS-2.jpg" },
-      { id: 2, name: "사이버펑크 2077", genre: "rpg", img: "C:/Users/User/새 폴더/Web_Project/IMG/SP-2077.jpg" },
-      { id: 3, name: "레인보우 식스 시즈", genre: "strategy", img: "C:/Users/User/새 폴더/Web_Project/IMG/RSS.jpg" },
-      { id: 4, name: "게임D", genre: "action", img: "https://via.placeholder.com/100?text=D" },
-      { id: 5, name: "게임E", genre: "rpg", img: "https://via.placeholder.com/100?text=E" },
-      { id: 4, name: "게임D", genre: "action", img: "https://via.placeholder.com/100?text=D" },
-      { id: 1, name: "Counter-Strike 2", genre: "FPS", img: "C:/Users/User/새 폴더/Web_Project/IMG/CS-2.jpg" }
-
-    ];
-
-    const gameListEl = document.getElementById('gameList');
-    const searchInput = document.getElementById('searchInput');
-    const genreButtons = document.querySelectorAll('.genres button');
-
-    function renderGames(filterGenre = 'all', searchTerm = '') {
-      const filteredGames = games.filter(game => {
-        const matchGenre = filterGenre === 'all' || game.genre.includes(filterGenre);
-        const matchSearch = game.name.toLowerCase().includes(searchTerm.toLowerCase());
-        return matchGenre && matchSearch;
-      });
-
-      gameListEl.innerHTML = filteredGames.map(game => `
-        <div class="game-item" data-id="${game.id}">
-          <img src="${game.img}" alt="${game.name}" />
-          <p>${game.name}</p>
-        </div>
-      `).join('');
-
-      document.querySelectorAll('.game-item').forEach(item => {
-        item.addEventListener('click', () => {
-          const gameId = item.getAttribute('data-id');
-          alert(`게임 상세 페이지로 이동: 게임 ID ${gameId}`);
-          // 실제 구현 시 location.href = `game_detail.html?id=${gameId}`;
-        });
-      });
-    }
-
-    function handleKeyPress(event) {
-      if (event.key === 'Enter') {
-        const activeGenreBtn = document.querySelector('.genres button.active');
-        const genre = activeGenreBtn ? activeGenreBtn.getAttribute('data-genre') : 'all';
-        renderGames(genre, searchInput.value.trim());
-      }
-    }
-
-    document.getElementById('searchIcon').addEventListener('click', () => {
-      const activeGenreBtn = document.querySelector('.genres button.active');
-      const genre = activeGenreBtn ? activeGenreBtn.getAttribute('data-genre') : 'all';
-      renderGames(genre, searchInput.value.trim());
-    });
-
-    genreButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        genreButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        renderGames(btn.getAttribute('data-genre'), searchInput.value.trim());
-      });
-    });
-
-    // 로그인, 회원가입 버튼 동작
-    document.getElementById('loginBtn').addEventListener('click', () => {
-      alert('로그인 페이지로 이동');
-      // location.href = 'login.html';
-    });
-
-    document.getElementById('signUpBtn').addEventListener('click', () => {
-      alert('회원가입 페이지로 이동');
-      // location.href = 'signup.html';
-    });
-
-    // 초기 렌더링
-    renderGames();
-  </script>
 
   <script src="js/main.js"></script>
 </body>
