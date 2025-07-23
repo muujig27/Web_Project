@@ -85,29 +85,30 @@
 <body>
 
 <header>
-  <div class="logo-title">
-    <img src="https://via.placeholder.com/40" alt="로고" />
-    <h1>웹페이지 제목 (미정)</h1>
-  </div>
+  <a href="index.html" class="logo-title">
+    <img src="C:\Users\User\새 폴더\Web_Project\IMG\logo.png" alt="로고" />
+    <h1>게임 페이지</h1>
+  </a>
   <nav>
-    <button onclick="alert('로그인 페이지 이동')">로그인</button>
-    <button onclick="alert('회원가입 페이지 이동')">회원가입</button>
+    <button id="loginBtn", onclick="location.href='login.html'">로그인</button>
+    <button id="signUpBtn", onclick="location.href='signup.html'">회원가입</button>
   </nav>
 </header>
 
 <main>
-  <div class="game-title">게임A</div>
-  <img class="game-image" src="https://via.placeholder.com/600x300?text=게임A+로고" alt="게임A 로고" />
+  <div class="game-title">Counter-Strike 2</div>
+  <img class="game-image" src="C:/Users/User/새 폴더/Web_Project/IMG/CS-2.jpg" alt="게임A 로고" />
+  
+  <div class="flag-container">
+    <img src="https://flagcdn.com/w40/ru.png" alt="러시아 국기" class="country-flag" onclick="goCountry('ru')" />
+    <img src="https://flagcdn.com/w40/us.png" alt="미국 국기" class="country-flag" onclick="goCountry('us')" />
+    <img src="https://flagcdn.com/w40/br.png" alt="브라질 국기" class="country-flag" onclick="goCountry('br')" />
+  </div>
+
   <div class="description">
     이곳에 게임A의 상세 설명이 들어갑니다. 게임 장르, 특징, 출시일 등 간략히 소개해주세요.
   </div>
-  <div class="rating">평점: ★★★★☆ (4.2 / 5)</div>
-
-  <div class="flag-container">
-    <img src="https://flagcdn.com/w40/kr.png" alt="한국 국기" class="country-flag" onclick="goCountry('kr')" />
-    <img src="https://flagcdn.com/w40/us.png" alt="미국 국기" class="country-flag" onclick="goCountry('us')" />
-    <img src="https://flagcdn.com/w40/jp.png" alt="일본 국기" class="country-flag" onclick="goCountry('jp')" />
-  </div>
+  <div class="rating">평점: ★★★★☆ (4.3 / 5)</div>
 
   <div class="review-section">
     <button onclick="alert('리뷰 작성 페이지로 이동')">리뷰 작성하기</button>
@@ -121,5 +122,6 @@
   }
 </script>
 
+<script src="js/main.js"></script>
 </body>
 </html>
