@@ -66,7 +66,7 @@ window.addEventListener('DOMContentLoaded', () => {
     nav.innerHTML = `
       <div style="display: flex; align-items: center; gap: 10px;">
         <button id="profileBtn" style="background: transparent; border: none; cursor: pointer;">
-          <img src="img/profile_icon.png" alt="프로필" style="width: 32px; height: 32px; border-radius: 50%;" />
+          <img src="IMG/profile_icon.png" alt="프로필" style="width: 32px; height: 32px; border-radius: 50%;" />
         </button>
         <button id="logoutBtn" style="background: white; color: #333; border: 1px solid #333; padding: 10px 10px; border-radius: 4px; cursor: pointer;">
           로그아웃
