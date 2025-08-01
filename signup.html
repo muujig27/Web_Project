@@ -1,16 +1,76 @@
-<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>회원가입</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>회원가입 페이지</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .signup-container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 320px;
+    }
+    h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    button.signup-btn {
+      width: 100%;
+      background: #333;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button.signup-btn:hover {
+      background: #555;
+    }
+    .login-link {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+    }
+    .login-link a {
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <h2>회원가입</h2>
-  <form>
-    <input type="text" placeholder="아이디" />
-    <input type="email" placeholder="이메일" />
-    <input type="password" placeholder="비밀번호" />
-    <button type="submit">가입하기</button>
-  </form>
+  <div class="signup-container">
+    <h2>회원가입</h2>
+    <input type="text" placeholder="아이디" id="signupId" />
+    <input type="email" placeholder="이메일" id="signupEmail" />
+    <input type="password" placeholder="비밀번호" id="signupPw" />
+    <button class="signup-btn" onclick="handleSignup()">가입하기</button>
+
+    <div class="login-link">
+      계정이 있으신가요? <a href="login.html">로그인</a>
+    </div>
+  </div>
+  <script src="js/signup.js"></script>
 </body>
 </html>

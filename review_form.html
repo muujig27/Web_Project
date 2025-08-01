@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>리뷰 작성하기</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0; padding: 20px;
+            color: #333;
+        }
+        .review-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin-bottom: 24px;
+            text-align: center;
+            color: #222;
+        }
+        label {
+            display: block;
+            margin-top: 18px;
+            font-weight: 600;
+        }
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px 12px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            resize: vertical;
+        }
+        textarea {
+            min-height: 120px;
+        }
+        .star-rating {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .star-rating input[type="radio"] {
+            display: none;
+        }
+        .star-rating label {
+            font-size: 24px;
+            color: #ccc;
+            cursor: pointer;
+            transition: color 0.2s ease;
+            user-select: none;
+        }
+        .star-rating input[type="radio"]:checked ~ label,
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+            color: #ffb400;
+        }
+        button {
+            margin-top: 28px;
+            width: 100%;
+            padding: 14px 0;
+            background-color: #007bff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .note {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="review-container">
+        <h1>리뷰 작성하기</h1>
+        <form id="reviewForm" action="/submit-review" method="POST">
+            <label for="title">리뷰 제목 <span aria-hidden="true" style="color:red;">*</span></label>
+            <input type="text" id="title" name="title" required placeholder="리뷰 제목을 입력하세요" maxlength="100" />
+
+            <label for="rating">별점 <span aria-hidden="true" style="color:red;">*</span></label>
+            <div class="star-rating" aria-label="별점 선택" role="radiogroup">
+                <input type="radio" id="star5" name="rating" value="5" required />
+                <label for="star5" title="5점">★</label>
+
+                <input type="radio" id="star4" name="rating" value="4" />
+                <label for="star4" title="4점">★</label>
+
+                <input type="radio" id="star3" name="rating" value="3" />
+                <label for="star3" title="3점">★</label>
+
+                <input type="radio" id="star2" name="rating" value="2" />
+                <label for="star2" title="2점">★</label>
+
+                <input type="radio" id="star1" name="rating" value="1" />
+                <label for="star1" title="1점">★</label>
+            </div>
+
+            <label for="content">리뷰 내용 <span aria-hidden="true" style="color:red;">*</span></label>
+            <textarea id="content" name="content" required placeholder="솔직하고 자세한 리뷰를 작성해주세요."></textarea>
+
+            <button type="submit">리뷰 제출하기</button>
+            <p class="note">* 모든 항목은 필수 입력사항입니다.</p>
+        </form>
+    </div>
+
+    <script>
+        // 간단한 클라이언트 검증 예시
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            const title = this.title.value.trim();
+            const content = this.content.value.trim();
+            const rating = this.rating.value;
+
+            if (!title || !content || !rating) {
+                alert('모든 필수 항목을 빠짐없이 작성해 주세요.');
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
