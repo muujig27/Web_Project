@@ -30,6 +30,8 @@ const games = [
   { id: 29, name: "Among Us", genre: ["casual"], img: "img/amongUsIcon.png", page: "amongUs.html" }
 ];
 
+location.href = '/https://muujig27.github.io/Web_Project//index.html';
+
 const gameListEl = document.getElementById('gameList');
 const searchInput = document.getElementById('searchInput');
 const genreButtons = document.querySelectorAll('.genres button');
