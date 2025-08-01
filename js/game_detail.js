@@ -1,4 +1,4 @@
-location.href = '/https://muujig27.github.io/Web_Project//index.html';
+// location.href = '/https://muujig27.github.io/Web_Project//index.html';
 
 document.querySelectorAll('.country-flag')?.forEach(flag => {
     flag.addEventListener('click', () => {

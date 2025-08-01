@@ -1,4 +1,4 @@
-location.href = '/https://muujig27.github.io/Web_Project//index.html';
+// location.href = 'https://muujig27.github.io/Web_Project/index.html';
 
 const loginBtn = document.getElementById('loginBtn');
 if (loginBtn) {

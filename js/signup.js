@@ -1,4 +1,4 @@
-location.href = '/https://muujig27.github.io/Web_Project//index.html';
+// location.href = '/https://muujig27.github.io/Web_Project//index.html';
 
 function handleSignup() {
     const id = document.getElementById('signupId').value.trim();
