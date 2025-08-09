@@ -6,7 +6,7 @@ document.querySelectorAll('.country-flag')?.forEach(flag => {
         : flag.src.includes('us') ? 'us'
         : flag.src.includes('br') ? 'br' : '';
       if (code === 'ru') {
-        location.href = 'games/cs2/cs2_country.html';
+        location.href = 'cs2_country.html';
       } else {
         alert(`${code.toUpperCase()} 국가는 아직 준비 중입니다.`);
       }
