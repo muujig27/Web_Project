@@ -1,5 +1,5 @@
 const games = [
-  { id: 1, name: "Counter-Strike 2", genre: ["FPS", "action"], img: "img/CS-2.jpg", page: "cs2.html" },
+  { id: 1, name: "Counter-Strike 2", genre: ["FPS", "action"], img: "img/CS-2.jpg", page: "games/cs2.html" },
   { id: 2, name: "사이버펑크 2077", genre: ["FPS", "action"], img: "img/SP-2077.jpg", page: "sp2077.html" },
   { id: 3, name: "레인보우 식스 시즈", genre: ["FPS", "action"], img: "img/RSS.jpg", page: "rainbowsix.html" },
   { id: 4, name: "Once Human", genre: ["adventure"], img: "img/Once_Human.jpg", page: "onceHuman.html" },
@@ -30,7 +30,6 @@ const games = [
   { id: 29, name: "Among Us", genre: ["casual"], img: "img/amongUsIcon.png", page: "amongUs.html" }
 ];
 
-// location.href = 'https://muujig27.github.io/Web_Project/index.html';
 
 const gameListEl = document.getElementById('gameList');
 const searchInput = document.getElementById('searchInput');
